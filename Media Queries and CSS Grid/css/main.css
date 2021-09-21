@@ -1,0 +1,87 @@
+/*-------Color Palette-------
+Green - #40F99B
+Blue - #30C5FF
+Purple - #7B4B94
+Red - #DF2935
+Yellow - #F7E733
+*/
+
+/*-----Global Styles-----*/
+body > * {
+  padding: 0 0 0 10px;
+}
+
+pre {
+  display: inline-flex;
+  padding: 5px;
+  background-color: black;
+  color: white;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.header {
+  margin: 0;
+  background-color: #40f99b;
+}
+.main-content {
+  background-color: #30c5ff;
+}
+.article {
+  background-color: #7b4b94;
+}
+.sidebar {
+  background-color: #f7e733;
+}
+.footer {
+  background-color: #df2935;
+}
+
+/*-------Mobile-First Layout/Older Browser----*/
+
+/* .site {
+  max-width: 600px;
+  margin: 0 auto;
+} */
+
+/*-----Grid Styles---------*/
+
+@supports (grid-area: auto) {
+  @media screen and (min-width: 600px) {
+    .site {
+      max-width: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr) repeat(2, 0.5fr);
+      grid-template-rows: repeat(4, 25vh);
+      gap: 5px;
+      grid-template-areas:
+        "header header header header"
+        "main-content main-content article sidebar"
+        "main-content main-content article sidebar"
+        "footer footer footer footer";
+    }
+
+    .header {
+      grid-area: header;
+    }
+
+    .main-content {
+      grid-area: main-content;
+    }
+
+    .article {
+      grid-area: article;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+    }
+
+    .footer {
+      grid-area: footer;
+    }
+  }
+}
